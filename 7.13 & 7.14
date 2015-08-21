@@ -1,0 +1,53 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define maxvals 1000
+
+int mystrlen(char *s);
+char *mystrcat(char *dest, char *src);
+int myatoi(char *s);
+
+int
+main(int argc, char *argv[]){
+	char p[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+	printf("%d",mystrlen(p));
+	return 0;
+}
+
+
+int
+mystrlen(char s[]){
+	int i;
+	for (i=0; s[i]!='\0'; i++){
+	}return i;
+}
+char 
+*mystrcat(char *dest, char *src){
+	/*havent tested*/
+	int i, j;
+	for (i=0; dest[i]!='\0'; i++){
+	}for (j=0; src[j]!='\0'; j++){
+		dest[i+j]=src[j];
+	}dest[i+j]='\0'
+	return *dest;
+}
+
+int
+myatoi(char *s){
+	int i=0; int j, retval, unit, x;
+	reval=0;
+	while (s[i]0==' '){
+		i+=1;
+	}j=i; /*j is index of first char*/
+	for (i=0; s[i]!='\0'; i++){
+	}/*i is index of last char +1*/
+	for (;j<i;j++){
+		unit=1;
+		for(x=j; x<i; x++){
+			unit*=10;
+		}
+		reval+=((int)s[j]-48)*unit;
+	}return retval;
+}
+	
