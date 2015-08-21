@@ -1,0 +1,58 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define maxvals 1000
+
+int inversions(int A[], int n);
+int runs(int A[], int n);
+
+
+int
+main(int argc, char *argv[]) {
+	int n, excess, A[maxvals], x, nextnumber, k;
+	printf("Enter as many as %d values, ^D to end\n", maxvals);
+	n=0; excess=0;
+	while (scanf("%d", &nextnumber)==1){
+		if (n==maxvals) {
+			excess = excess+1;
+		}else{		
+			A[n] = nextnumber;
+			n+=1;
+		}/*n values in array*/
+	}printf("%d values read into array\n", n);
+	printf("Please enter k, the index you wish to access");
+	scanf(" %d", &k)
+	printf("%d", x);
+	return 0;
+}
+
+
+int 
+runs(int A[], int n){
+	int i, prevval, run;
+	prevval=A[0]; run=1;
+	if (n==1){
+		return 1;
+	}
+	for(i=1;i<n;i++){
+		if (A[i]<=prevval){
+			run+=1;
+		}prevval=A[i];
+	}return run;
+}
+
+int 
+inversions(int A[], int n){
+	int i, prevval, inversions;
+	prevval=A[0]; inversions=1;
+	if (n==1){
+		return 0;
+	}
+	for(i=1;i<n;i++){
+		if (A[i]<=prevval){
+			inversions+=1;
+		}prevval=A[i];
+	}return inversions;
+}
+			
