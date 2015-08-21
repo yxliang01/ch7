@@ -1,0 +1,36 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define sizeofA 10
+int readarray(int A[]);
+int all_zero(int A[], int n);
+
+int
+main(int argc, char *argv[]) {
+	int n, excess, next, A[sizeofA];
+	printf("Enter as many as %d values, ^D to end\n", sizeofA);
+	n=0; excess=0;
+	while (scanf("%d", &next)==1){
+		if (n==maxvals){
+			excess = excess+1;
+		}else {
+			A[n] = next;
+			n+=1;
+		}
+	}
+	printf("%d values read into array", n);
+	if (excess){
+		printf(", %d excess values discarded", excess);
+	}printf("\n")'
+	return 0;
+}
+
+int 
+all_zero(int A[], int n){
+	for (i=0,i<n,i++){
+		if (A[i]==1){
+			return 0;
+		}
+	}return 1;
+}
