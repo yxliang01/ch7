@@ -1,0 +1,41 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define maxvals 1000
+
+int palindrome(char A[], int n);
+
+
+int
+main(int argc, char *argv[]) {
+	int n, excess, i, x;
+	char nextchar, A[maxvals];
+	printf("Enter as many as %d values, enter and then ^Z to end\n", maxvals);
+	n=0; excess=0;
+	while (scanf("%c", &nextchar)==1){
+		if (n==maxvals) {
+			excess = excess+1;
+		}else{		
+			A[n] = nextchar;
+			n+=1;
+		}/*n chars in array*/
+	}printf("%d chars read into array\n", n);
+	for(i=0; i<n; i++){
+		printf("%c", A[i]);
+	}
+	x=palindrome(A,n-1);
+	printf("%d",x);
+	return 0;
+}
+
+
+int
+palindrome(char A[], int n){
+	int i;
+	for (i=0; i<n/2; i++){
+		if (A[i]!=A[n-i-1]){
+			return 0;
+		}
+	}return 1;
+}
