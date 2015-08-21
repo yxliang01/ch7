@@ -1,0 +1,49 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define maxvals 1000
+
+void mysort(int A[], int B[], int n);
+void int_swap(int *p1, int *p2);
+
+
+int
+main(int argc, char *argv[]) {
+	int n, excess, A[maxvals], B[maxvals], x, nextnumber, nextscore;
+	printf("Enter as many as %d values, ^D to end\n", maxvals);
+	n=0; excess=0;
+	while (scanf("%d %d", &nextnumber, &nextscore)==2){
+		if (n==maxvals) {
+			excess = excess+1;
+		}else{		
+			A[n] = nextnumber;
+			B[n] = nextscore;
+			n+=1;
+		}/*n values in array*/
+	}printf("%d pairs read into array\n", n);
+	mysort(A, B, n);
+	x=0;
+	while (x<n){
+		printf("%d %3d\n", A[x], B[x]);
+		x+=1;
+	}
+	return 0;
+}
+void
+mysort(int A[], int B[], int n){
+	int i, j;
+	for (i=1; i<n; i++){
+		for (j=i-1; j >=0 && A[j+1]<A[j]; j--) {
+			int_swap(&A[j], &A[j+1]);
+			int_swap(&B[j], &B[j+1]);
+		}
+	}
+}
+void 
+int_swap(int *p1, int *p2){
+	int temp=0;
+	temp=*p1;
+	*p1=*p2;
+	*p2=temp;
+}
