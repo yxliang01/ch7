@@ -1,0 +1,65 @@
+/* comment
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#define maxvals 1000
+
+int kthsmallest(int A[], int n, int k);
+
+
+int
+main(int argc, char *argv[]) {
+	int n, excess, A[maxvals], x, nextnumber, k;
+	printf("Enter as many as %d values, ^D to end\n", maxvals);
+	n=0; excess=0;
+	while (scanf("%d", &nextnumber)==1){
+		if (n==maxvals) {
+			excess = excess+1;
+		}else{		
+			A[n] = nextnumber;
+			n+=1;
+		}/*n values in array*/
+	}printf("%d values read into array\n", n);
+	printf("Please enter k, the index you wish to access");
+	scanf(" %d", &k)
+	printf("%d", x);
+	return 0;
+}
+
+
+
+
+
+int 
+kthsmallest(int A[], int n, int k){
+	int i, x, y, lowestval, discarded, maxval;
+	x=0;
+	maxval=lowestval=A[0];
+	y=1;
+	for(i=1;i<n;i++){
+		if (A[i]==lowestval){
+			y+=1;
+		}
+		else if (A[i]<lowestval){
+			lowestval=A[i];
+			y=1;
+		}if (A[i]>maxval){
+			maxval=A[i];
+		}
+	}x+=y;
+	discarded=lowestval;
+	while (x<k){
+		lowestval=maxval;
+		y=1;
+		for(i=0;i<n;i++){
+			if (A[i]==lowestval){
+				y+=1;
+			}else if ((A[i]<lowestval) && A[i]>discarded){
+				lowestval=A[i];
+				y=1;
+			}
+		}x+=y;
+		discarded = lowestval;
+	}return lowestval;
+}
+			
